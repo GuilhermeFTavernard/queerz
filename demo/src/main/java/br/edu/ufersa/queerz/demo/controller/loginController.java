@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/login")
-public class telaLogin {
+public class loginController {
 
-        @PostMapping("/login")
+        @PostMapping
         public String realizarLogin(
                 @RequestParam String email,
                 @RequestParam String senha) {
@@ -18,5 +18,4 @@ public class telaLogin {
 
             return "home";
         }
-
 }

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/telaInicial")
-public class telaInicial {
+public class incialController {
     
     @GetMapping
     public String telaInicial() {
@@ -21,6 +21,16 @@ public class telaInicial {
 
     @GetMapping("/telaLogin")
     public String login(){
+        return "login";
+    }
+
+    @GetMapping("/quiz")
+    public String quiz(){
+        return "quiz";
+    }
+
+    @GetMapping("/sair")
+    public String sair(){
         return "login";
     }
 }
