@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/telaInicial")
-public class incialController {
+public class InicialController {
     
     @GetMapping
-    public String telaInicial() {
+    public String inicial() {
         return "telaInicial";
     }
 
-    @GetMapping("/telaCadastro")
+    @GetMapping("/sign-up")
     public String cadastrar(){
         return  "cadastro";
     }
 
-    @GetMapping("/telaLogin")
+    @GetMapping("/login")
     public String login(){
         return "login";
     }

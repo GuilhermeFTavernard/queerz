@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/login")
-public class loginController {
+public class LoginController {
 
         @PostMapping
         public String realizarLogin(
