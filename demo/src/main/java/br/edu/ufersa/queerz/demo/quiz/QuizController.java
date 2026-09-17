@@ -1,4 +1,4 @@
-package br.edu.ufersa.queerz.demo.controller;
+package br.edu.ufersa.queerz.demo.quiz;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,4 +1,4 @@
-package br.edu.ufersa.queerz.demo.controller;
+package br.edu.ufersa.queerz.demo.home;
 
 
 import org.springframework.stereotype.Controller;
