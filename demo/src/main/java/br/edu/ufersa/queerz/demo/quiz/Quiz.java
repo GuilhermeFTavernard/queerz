@@ -1,5 +1,10 @@
 package br.edu.ufersa.queerz.demo.quiz;
 
+import br.edu.ufersa.queerz.demo.pergunta.Pergunta;
+import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Quiz {
     @Id
