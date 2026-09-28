@@ -11,14 +11,14 @@ import java.util.Map;
 public class JogoController {
 
     // Jogar um quiz pelo código PIN (Acesso inicial)
-    @GetMapping("/jogar")
+    @GetMapping("/sessaoQuiz")
     public String exibirTelaPin() {
         System.out.println("Exibindo tela de inserção de PIN");
         return "jogo/entrar-pin";
     }
 
     // Validação e redirecionamento para a sessão síncrona
-    @PostMapping("/jogar")
+    @PostMapping("/sessaoQuiz")
     public String entrarPeloCodigo(@RequestParam("codigoPin") String codigoPin,
                                    @RequestParam("apelido") String apelido,
                                    RedirectAttributes redirectAttributes) {
