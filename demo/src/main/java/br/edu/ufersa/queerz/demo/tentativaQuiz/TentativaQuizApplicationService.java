@@ -1,4 +1,4 @@
-package br.edu.ufersa.queerz.demo.tentativaquiz;
+package br.edu.ufersa.queerz.demo.tentativaQuiz;
 
 import br.edu.ufersa.queerz.demo.quiz.CorrecaoQuizDomainService;
 import br.edu.ufersa.queerz.demo.quiz.CorrecaoQuizDomainService.RespostaEscolhida;

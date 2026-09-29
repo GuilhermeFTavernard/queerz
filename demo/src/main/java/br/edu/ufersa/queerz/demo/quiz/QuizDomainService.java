@@ -1,14 +1,15 @@
 package br.edu.ufersa.queerz.demo.quiz;
 
-import br.edu.ufersa.queerz.demo.jogo.SessaoQuizRepository;
+import br.edu.ufersa.queerz.demo.sessaoQuiz.SessaoQuizRepository;
 import br.edu.ufersa.queerz.demo.pergunta.Pergunta;
 import br.edu.ufersa.queerz.demo.pergunta.PerguntaDomainService;
 import br.edu.ufersa.queerz.demo.shared.exception.BusinessRuleException;
 import br.edu.ufersa.queerz.demo.shared.exception.DuplicateResourceException;
 import br.edu.ufersa.queerz.demo.shared.exception.ForbiddenOperationException;
 import br.edu.ufersa.queerz.demo.shared.exception.ResourceNotFoundException;
-import br.edu.ufersa.queerz.demo.shared.security.UsuarioLogado;
-import br.edu.ufersa.queerz.demo.tentativaquiz.TentativaQuizRepository;
+import br.edu.ufersa.queerz.demo.tentativaQuiz.TentativaQuizRepository;
+import br.edu.ufersa.queerz.demo.usuario.UserRole;
+import br.edu.ufersa.queerz.demo.usuario.dto.UsuarioResponse;
 import org.springframework.stereotype.Service;
 
 /**
@@ -45,13 +46,17 @@ public class QuizDomainService {
         }
     }
 
-    public boolean ehDonoOuAdmin(Quiz quiz, UsuarioLogado usuario) {
-        return usuario != null
-                && (usuario.admin() || quiz.getCriador().getId().equals(usuario.id()));
+    public boolean ehDonoOuAdmin(Quiz quiz, UsuarioResponse usuario) {
+        if (usuario == null) {
+            return false;
+        }
+        boolean ehAdmin = usuario.role() == UserRole.ADMIN;
+        boolean ehDono = quiz.getCriador().getId().equals(usuario.id());
+        return ehAdmin || ehDono;
     }
 
     /** Alterar/excluir/gerenciar: só o dono ou um ADMIN. */
-    public void garantirPodeEditar(Quiz quiz, UsuarioLogado usuario) {
+    public void garantirPodeEditar(Quiz quiz, UsuarioResponse usuario) {
         if (!ehDonoOuAdmin(quiz, usuario)) {
             throw new ForbiddenOperationException("Você não tem permissão para gerenciar este quiz");
         }
@@ -61,7 +66,7 @@ public class QuizDomainService {
      * Quiz PUBLICO é visível a todos; PRIVADO só ao dono/ADMIN.
      * Para os demais respondemos 404 (não revelamos que o quiz privado existe).
      */
-    public void garantirPodeVisualizar(Quiz quiz, UsuarioLogado usuario) {
+    public void garantirPodeVisualizar(Quiz quiz, UsuarioResponse usuario) {
         if (quiz.getPrivacidade() == Privacidade.PUBLICO || ehDonoOuAdmin(quiz, usuario)) {
             return;
         }

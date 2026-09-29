@@ -1,7 +1,6 @@
 package br.edu.ufersa.queerz.demo.pergunta;
 
 import br.edu.ufersa.queerz.demo.alternativa.Alternativa;
-import br.edu.ufersa.queerz.demo.alternativa.dto.AlternativaRequest;
 import br.edu.ufersa.queerz.demo.quiz.Quiz;
 import br.edu.ufersa.queerz.demo.shared.exception.BusinessRuleException;
 import br.edu.ufersa.queerz.demo.shared.exception.DuplicateResourceException;
@@ -10,6 +9,8 @@ import org.springframework.stereotype.Service;
 /**
  * Regras do agregado Pergunta (que é raiz das Alternativas):
  * limite de alternativas, uma única correta, sem textos repetidos e sem enunciados repetidos no quiz.
+ *
+ * Puramente focado no domínio: sem dependência de DTOs, requisições HTTP ou repositórios.
  */
 @Service
 public class PerguntaDomainService {
@@ -29,15 +30,16 @@ public class PerguntaDomainService {
     }
 
     /**
-     * Valida inclusão/edição de uma alternativa. {@code alvo} é a alternativa sendo editada (null na inclusão).
+     * Valida inclusão/edição de uma alternativa recebendo dados puros de domínio.
+     * {@code alvo} é a alternativa sendo editada (null na inclusão).
      */
-    public void validarAlternativa(Pergunta pergunta, Alternativa alvo, AlternativaRequest request) {
+    public void validarAlternativa(Pergunta pergunta, Alternativa alvo, String novoTexto, Boolean eCorreta) {
         if (alvo == null && pergunta.getAlternativas().size() >= MAX_ALTERNATIVAS) {
             throw new BusinessRuleException(
                     "Uma pergunta pode ter no máximo %d alternativas".formatted(MAX_ALTERNATIVAS));
         }
 
-        String texto = request.texto().trim();
+        String texto = novoTexto.trim();
         boolean textoRepetido = pergunta.getAlternativas().stream()
                 .filter(a -> a != alvo)
                 .anyMatch(a -> texto.equalsIgnoreCase(a.getTexto()));
@@ -45,7 +47,7 @@ public class PerguntaDomainService {
             throw new DuplicateResourceException("Já existe uma alternativa com este texto na pergunta");
         }
 
-        if (Boolean.TRUE.equals(request.correta())) {
+        if (Boolean.TRUE.equals(eCorreta)) {
             boolean jaExisteCorreta = pergunta.getAlternativas().stream()
                     .anyMatch(a -> a != alvo && a.isCorreta());
             if (jaExisteCorreta) {

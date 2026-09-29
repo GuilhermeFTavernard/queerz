@@ -1,4 +1,4 @@
-package br.edu.ufersa.queerz.demo.jogo.dto;
+package br.edu.ufersa.queerz.demo.sessaoQuiz.dto;
 
 import br.edu.ufersa.queerz.demo.tentativaquiz.dto.RespostaRequest;
 import jakarta.validation.Valid;

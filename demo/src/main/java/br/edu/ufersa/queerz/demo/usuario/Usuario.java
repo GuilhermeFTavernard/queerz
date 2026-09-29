@@ -56,6 +56,7 @@ public class Usuario implements UserDetails {
     public String getEmail(){return email;}
     public String getSenha(){return senha;}
     public String getNome(){return nome;}
+    public UserRole getRole(){return role;}
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities(){

@@ -1,4 +1,5 @@
 package br.edu.ufersa.queerz.demo.usuario.dto;
+import br.edu.ufersa.queerz.demo.usuario.UserRole;
 import br.edu.ufersa.queerz.demo.usuario.Usuario;
 
 
@@ -6,9 +7,10 @@ import br.edu.ufersa.queerz.demo.usuario.Usuario;
 public record UsuarioResponse(
         Long id,
         String nome,
-        String email
+        String email,
+        UserRole role
 ) {
     public static UsuarioResponse from(Usuario usuario) {
-        return new UsuarioResponse(usuario.getId(), usuario.getNome(), usuario.getEmail());
+        return new UsuarioResponse(usuario.getId(), usuario.getNome(), usuario.getEmail(), usuario.getRole());
     }
 }

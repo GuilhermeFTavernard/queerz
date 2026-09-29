@@ -1,4 +1,4 @@
-package br.edu.ufersa.queerz.demo.jogo.dto;
+package br.edu.ufersa.queerz.demo.sessaoQuiz.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

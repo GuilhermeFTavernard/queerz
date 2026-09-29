@@ -5,7 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62917eab-d7cf-41a8-b305-8a812320daee" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/autenticar/AuthApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/autenticar/AuthDomainService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/pergunta/PerguntaApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/pergunta/PerguntaDomainService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/CorrecaoQuizDomainService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/QuizApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/QuizDomainService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/QuizRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/SessaoQuizApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/SessaoQuizDomainService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/shared/exception/InvalidCredentialsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/tentativaQuiz/TentativaQuizApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UsuarioApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UsuarioDomainService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/SessaoQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/SessaoQuiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/SessaoQuizController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/SessaoQuizController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/SessaoQuizRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/SessaoQuizRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/dto/EntrarSessaoRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/dto/EntrarSessaoRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/dto/ResultadoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/dto/ResultadoResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/dto/SessaoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/dto/SessaoResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/dto/SubmeterRespostasRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/dto/SubmeterRespostasRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/pergunta/Pergunta.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/pergunta/Pergunta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/Privacidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/Privacidade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/Quiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/TipoUsuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UsuarioRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/dto/UsuarioResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/dto/UsuarioResponse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +46,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
+        <option value="Record" />
         <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -30,8 +64,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/GuilhermeFTavernard/queerz.git&quot;,
-    &quot;accountId&quot;: &quot;cbbe67bc-d641-4652-837c-c133f7c4c0e1&quot;
+    &quot;url&quot;: &quot;git@github.com:GuilhermeFTavernard/queerz.git&quot;,
+    &quot;accountId&quot;: &quot;b6152f90-ad2c-4a78-af09-9f6337ab40bb&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -46,38 +80,48 @@
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3J3KHekaFgoH25ffB03WFMzWW94" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ApiV2&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/guita/Downloads/demo&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.DemoApplication.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "#4 on security",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Win11/queerz/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Win11\queerz\demo\src\main\java\br\edu\ufersa\queerz\demo\usuario" />
+      <recent name="C:\Users\Win11\queerz\demo\src\main\java\br\edu\ufersa\queerz\demo\tentativaQuiz" />
+      <recent name="C:\Users\Win11\queerz\demo\src\main\java\br\edu\ufersa\queerz\demo\quiz" />
+      <recent name="C:\Users\Win11\queerz\demo\src\main\java\br\edu\ufersa\queerz\demo\pergunta" />
+      <recent name="C:\Users\Win11\queerz\demo\src\main\java\br\edu\ufersa\queerz\demo\sessaoQuiz" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\guita\Downloads\demo\demo\src\main\java\br\edu\ufersa\queerz" />
     </key>
@@ -92,6 +136,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.24374.151" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.24374.151" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="StructureViewState">
     <option name="selectedTab" value="Logical" />

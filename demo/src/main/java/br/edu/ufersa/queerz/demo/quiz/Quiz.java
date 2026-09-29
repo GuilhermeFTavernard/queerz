@@ -1,6 +1,9 @@
 package br.edu.ufersa.queerz.demo.quiz;
 
 import br.edu.ufersa.queerz.demo.pergunta.Pergunta;
+import br.edu.ufersa.queerz.demo.tentativaQuiz.TentativaQuiz;
+import br.edu.ufersa.queerz.demo.sessaoQuiz.SessaoQuiz;
+import br.edu.ufersa.queerz.demo.usuario.Usuario;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +17,8 @@ public class Quiz {
     private String titulo;
 
     private String descricao;
+
+    private Usuario criador;
 
     @Enumerated(EnumType.STRING)
     private Privacidade privacidade;
@@ -46,6 +51,10 @@ public class Quiz {
         return descricao;
     }
 
+    public Usuario getCriador() {
+        return criador;
+    }
+
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
@@ -61,6 +70,8 @@ public class Quiz {
     public List<Pergunta> getPerguntas() {
         return perguntas;
     }
+
+    public Usuario setCriador(Usuario criador) {return criador;}
 
     public void setPerguntas(List<Pergunta> perguntas) {
         this.perguntas = perguntas;

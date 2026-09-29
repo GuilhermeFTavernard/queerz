@@ -1,20 +1,25 @@
 package br.edu.ufersa.queerz.demo.quiz;
 
-import br.edu.ufersa.queerz.demo.quiz.dto.QuizDetalheResponse;
-import br.edu.ufersa.queerz.demo.quiz.dto.QuizJogoResponse;
+import br.edu.ufersa.queerz.demo.quiz.dto.QuizResponse;
+import br.edu.ufersa.queerz.demo.sessaoQuiz.dto.SessaoResponse;
 import br.edu.ufersa.queerz.demo.quiz.dto.QuizRequest;
 import br.edu.ufersa.queerz.demo.quiz.dto.QuizResponse;
 import br.edu.ufersa.queerz.demo.quiz.mapper.QuizMapper;
+import br.edu.ufersa.queerz.demo.shared.exception.BusinessRuleException;
 import br.edu.ufersa.queerz.demo.shared.exception.ResourceNotFoundException;
-import br.edu.ufersa.queerz.demo.shared.security.UsuarioLogado;
 import br.edu.ufersa.queerz.demo.usuario.Usuario;
 import br.edu.ufersa.queerz.demo.usuario.UsuarioRepository;
+import br.edu.ufersa.queerz.demo.usuario.dto.UsuarioResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/** Casos de uso de Quiz. */
+/**
+ * Casos de uso de Quiz em arquitetura monolítica stateful (sessão HTTP no servidor).
+ */
 @Service
 public class QuizApplicationService {
 
@@ -22,19 +27,23 @@ public class QuizApplicationService {
     private final UsuarioRepository usuarioRepository;
     private final QuizDomainService quizDomainService;
     private final QuizMapper quizMapper;
+    private final HttpServletRequest httpRequest;
 
     public QuizApplicationService(QuizRepository quizRepository,
                                   UsuarioRepository usuarioRepository,
                                   QuizDomainService quizDomainService,
-                                  QuizMapper quizMapper) {
+                                  QuizMapper quizMapper,
+                                  HttpServletRequest httpRequest) {
         this.quizRepository = quizRepository;
         this.usuarioRepository = usuarioRepository;
         this.quizDomainService = quizDomainService;
         this.quizMapper = quizMapper;
+        this.httpRequest = httpRequest;
     }
 
     @Transactional
-    public QuizResponse criar(QuizRequest request, UsuarioLogado logado) {
+    public QuizResponse criar(QuizRequest request) {
+        UsuarioResponse logado = obterUsuarioResponseDaSessao();
         quizDomainService.garantirTituloDisponivel(logado.id(), request.titulo().trim(), null);
 
         Usuario criador = usuarioRepository.findById(logado.id())
@@ -46,8 +55,10 @@ public class QuizApplicationService {
     }
 
     @Transactional
-    public QuizResponse atualizar(Long id, QuizRequest request, UsuarioLogado logado) {
+    public QuizResponse atualizar(Long id, QuizRequest request) {
+        UsuarioResponse logado = obterUsuarioResponseDaSessao();
         Quiz quiz = buscarEntidade(id);
+
         quizDomainService.garantirPodeEditar(quiz, logado);
         quizDomainService.garantirTituloDisponivel(quiz.getCriador().getId(), request.titulo().trim(), id);
 
@@ -56,8 +67,10 @@ public class QuizApplicationService {
     }
 
     @Transactional
-    public void remover(Long id, UsuarioLogado logado) {
+    public void remover(Long id) {
+        UsuarioResponse logado = obterUsuarioResponseDaSessao();
         Quiz quiz = buscarEntidade(id);
+
         quizDomainService.garantirPodeEditar(quiz, logado);
         quizDomainService.garantirPodeExcluir(quiz);
 
@@ -67,19 +80,12 @@ public class QuizApplicationService {
 
     /** Painel do dono: inclui o gabarito. */
     @Transactional(readOnly = true)
-    public QuizDetalheResponse buscarDetalhe(Long id, UsuarioLogado logado) {
+    public QuizResponse buscarDetalhe(Long id) {
+        UsuarioResponse logado = obterUsuarioResponseDaSessao();
         Quiz quiz = buscarEntidade(id);
-        quizDomainService.garantirPodeEditar(quiz, logado);
-        return QuizDetalheResponse.from(quiz);
-    }
 
-    /** Tela de jogo individual: sem o gabarito, e só se o quiz estiver visível e jogável. */
-    @Transactional(readOnly = true)
-    public QuizJogoResponse buscarParaJogo(Long id, UsuarioLogado logado) {
-        Quiz quiz = buscarEntidade(id);
-        quizDomainService.garantirPodeVisualizar(quiz, logado);
-        quizDomainService.garantirJogavel(quiz);
-        return QuizJogoResponse.from(quiz);
+        quizDomainService.garantirPodeEditar(quiz, logado);
+        return QuizResponse.from(quiz);
     }
 
     /** Consulta pública (não exige login). */
@@ -91,10 +97,45 @@ public class QuizApplicationService {
     }
 
     @Transactional(readOnly = true)
-    public List<QuizResponse> listarMeus(UsuarioLogado logado, String busca) {
+    public List<QuizResponse> listarMeus(String busca) {
+        UsuarioResponse logado = obterUsuarioResponseDaSessao();
         return quizRepository
                 .findByCriadorIdAndTituloContainingIgnoreCaseOrderByTituloAsc(logado.id(), termo(busca))
                 .stream().map(QuizResponse::from).toList();
+    }
+
+    // ---------------- Helpers ----------------
+
+    /**
+     * Recupera obrigatoriamente o usuário autenticado armazenado na sessão do servidor.
+     */
+    private UsuarioResponse obterUsuarioResponseDaSessao() {
+        HttpSession session = httpRequest.getSession(false);
+        if (session == null || session.getAttribute("USUARIO_LOGADO_ID") == null) {
+            throw new BusinessRuleException("Sessão inexistente ou expirada. Realize o login novamente.");
+        }
+
+        Long usuarioId = (Long) session.getAttribute("USUARIO_LOGADO_ID");
+        Usuario usuario = usuarioRepository.findById(usuarioId)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuário", usuarioId));
+
+        return UsuarioResponse.from(usuario);
+    }
+
+    /**
+     * Tenta recuperar o usuário logado da sessão, retornando null caso não haja sessão ativa
+     * (útil para operações com acesso público parcial).
+     */
+    private UsuarioResponse obterUsuarioResponseDaSessaoOpcional() {
+        HttpSession session = httpRequest.getSession(false);
+        if (session == null || session.getAttribute("USUARIO_LOGADO_ID") == null) {
+            return null;
+        }
+
+        Long usuarioId = (Long) session.getAttribute("USUARIO_LOGADO_ID");
+        return usuarioRepository.findById(usuarioId)
+                .map(UsuarioResponse::from)
+                .orElse(null);
     }
 
     private Quiz buscarEntidade(Long id) {

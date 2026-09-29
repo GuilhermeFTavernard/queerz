@@ -1,8 +1,12 @@
 package br.edu.ufersa.queerz.demo.pergunta;
 
+import br.edu.ufersa.queerz.demo.alternativa.Alternativa;
+import br.edu.ufersa.queerz.demo.shared.exception.ResourceNotFoundException;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 @Entity
 public class Pergunta {
 
@@ -46,5 +50,12 @@ public class Pergunta {
 
     public void setAlternativas(List<Alternativa> alternativas) {
         this.alternativas = alternativas;
+    }
+
+    public Alternativa localizarAlternativa(Long alternativaId) {
+        return this.alternativas.stream()
+                .filter(a -> Objects.equals(a.getId(), alternativaId))
+                .findFirst()
+                .orElseThrow(() -> new ResourceNotFoundException("Alternativa", alternativaId));
     }
 }

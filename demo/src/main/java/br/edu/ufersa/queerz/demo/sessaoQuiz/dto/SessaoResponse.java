@@ -1,21 +1,28 @@
-package br.edu.ufersa.queerz.demo.jogo.dto;
+package br.edu.ufersa.queerz.demo.sessaoQuiz.dto;
 
-import br.edu.ufersa.queerz.demo.jogo.Jogo;
+import br.edu.ufersa.queerz.demo.participante.ParticipanteResponse;
+import br.edu.ufersa.queerz.demo.participante.Participante;
+import br.edu.ufersa.queerz.demo.sessaoQuiz.SessaoQuiz;
+
+import java.util.List;
 
 public record SessaoResponse(
         String codigo,
-        String apelido,
         Long quizId,
-        String quizTitulo
+        String quizTitulo,
+        List<ParticipanteResponse> participantes
 ) {
 
-    /** O apelido não é persistido na sessão; vem da requisição de entrada. */
-    public static SessaoResponse from(SessaoQuiz sessao, String apelido) {
+    public static SessaoResponse from(SessaoQuiz sessao, List<Participante> participantes) {
+        List<ParticipanteResponse> participantesDto = participantes.stream()
+                .map(ParticipanteResponse::from)
+                .toList();
+
         return new SessaoResponse(
                 sessao.getCodigo(),
-                apelido,
                 sessao.getQuiz().getId(),
-                sessao.getQuiz().getTitulo()
+                sessao.getQuiz().getTitulo(),
+                participantesDto
         );
     }
 }
