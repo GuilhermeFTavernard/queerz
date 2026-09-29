@@ -5,38 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62917eab-d7cf-41a8-b305-8a812320daee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/autenticar/AuthApplicationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/autenticar/AuthDomainService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/pergunta/PerguntaApplicationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/pergunta/PerguntaDomainService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/CorrecaoQuizDomainService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/QuizApplicationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/QuizDomainService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/QuizRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/SessaoQuizApplicationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/SessaoQuizDomainService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/shared/exception/InvalidCredentialsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/tentativaQuiz/TentativaQuizApplicationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UsuarioApplicationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UsuarioDomainService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/SessaoQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/SessaoQuiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/SessaoQuizController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/SessaoQuizController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/SessaoQuizRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/SessaoQuizRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/dto/EntrarSessaoRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/dto/EntrarSessaoRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/dto/ResultadoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/dto/ResultadoResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/dto/SessaoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/dto/SessaoResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/dto/SubmeterRespostasRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/dto/SubmeterRespostasRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/resources/application-dev.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/resources/application-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/autenticar/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/autenticar/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/home/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/home/InicialController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/SessaoQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/SessaoQuiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/SessaoQuizRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/SessaoQuizRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/dto/SessaoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/jogo/dto/SessaoResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/pergunta/Pergunta.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/pergunta/Pergunta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/Privacidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/Privacidade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/Quiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/TipoUsuario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UsuarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UsuarioRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/dto/UsuarioResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/dto/UsuarioResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/dto/SubmeterRespostasRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/sessaoQuiz/dto/SubmeterRespostasRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/shared/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/shared/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/shared/exception/WebExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/tentativaQuiz/dto/FinalizarTentativaRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/tentativaQuiz/dto/FinalizarTentativaRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/tentativaQuiz/dto/TentativaResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/tentativaQuiz/dto/TentativaResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/tentativaQuiz/tentativaQuizController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/tentativaQuiz/TentativaQuizController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +86,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Spring Boot.DemoApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "#4 on security",
+    "git-widget-placeholder": "#4 on Merging security",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Win11/queerz/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario",
     "node.js.detected.package.eslint": "true",

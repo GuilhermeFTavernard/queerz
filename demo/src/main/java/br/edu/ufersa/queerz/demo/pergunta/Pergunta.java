@@ -1,7 +1,10 @@
 package br.edu.ufersa.queerz.demo.pergunta;
 
 import br.edu.ufersa.queerz.demo.alternativa.Alternativa;
+<<<<<<< HEAD
 import br.edu.ufersa.queerz.demo.shared.exception.ResourceNotFoundException;
+=======
+>>>>>>> e4c5c6a5817eaaef7641ebdb501b9cfe8a1665b7
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
 package br.edu.ufersa.queerz.demo.tentativaQuiz.dto;
 
-import br.edu.ufersa.queerz.demo.quiz.TentativaQuiz;
+import br.edu.ufersa.queerz.demo.tentativaQuiz.TentativaQuiz;
 
 import java.time.LocalDateTime;
 
