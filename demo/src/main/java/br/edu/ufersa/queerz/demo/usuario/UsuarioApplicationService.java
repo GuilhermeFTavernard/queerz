@@ -1,21 +1,27 @@
 package br.edu.ufersa.queerz.demo.usuario;
 
-import br.edu.ufersa.queerz.demo.shared.exception.BusinessRuleException;
+import br.edu.ufersa.queerz.demo.shared.exception.ForbiddenOperationException;
 import br.edu.ufersa.queerz.demo.shared.exception.ResourceNotFoundException;
-import br.edu.ufersa.queerz.demo.shared.security.UsuarioLogado;
 import br.edu.ufersa.queerz.demo.usuario.dto.AlterarSenhaRequest;
 import br.edu.ufersa.queerz.demo.usuario.dto.AtualizarPerfilRequest;
 import br.edu.ufersa.queerz.demo.usuario.dto.UsuarioRequest;
 import br.edu.ufersa.queerz.demo.usuario.dto.UsuarioResponse;
 import br.edu.ufersa.queerz.demo.usuario.mapper.UsuarioMapper;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/** Casos de uso de Usuário: coordena transação, repositório, regras de domínio e conversão para DTO. */
+/**
+ * Casos de uso de Usuário: coordena transação, repositório, regras de domínio,
+ * conversão para DTO e sincronização do estado da sessão HTTP (Stateful Monolith).
+ */
 @Service
 public class UsuarioApplicationService {
+
+    public static final String ATTR_USUARIO_LOGADO = "USUARIO_LOGADO";
 
     private final UsuarioRepository usuarioRepository;
     private final UsuarioDomainService usuarioDomainService;
@@ -36,9 +42,8 @@ public class UsuarioApplicationService {
         usuarioDomainService.garantirEmailDisponivel(email);
 
         String senhaCriptografada = usuarioDomainService.criptografarSenha(request.senha());
-        Usuario usuario = usuarioMapper.toEntity(request, email, senhaCriptografada);
+        Usuario usuario = usuarioMapper.toEntity(request, senhaCriptografada);
 
-        // saveAndFlush: se outra requisição cadastrou o mesmo e-mail ao mesmo tempo, o conflito estoura aqui (409)
         return UsuarioResponse.from(usuarioRepository.saveAndFlush(usuario));
     }
 
@@ -52,36 +57,56 @@ public class UsuarioApplicationService {
         return usuarioRepository.findAll().stream().map(UsuarioResponse::from).toList();
     }
 
+    /** Atualiza os dados do usuário autenticado na requisição e renova o estado na HttpSession. */
     @Transactional
-    public UsuarioResponse atualizarPerfil(Long usuarioId, AtualizarPerfilRequest request) {
-        Usuario usuario = buscarEntidade(usuarioId);
+    public UsuarioResponse atualizarPerfil(AtualizarPerfilRequest request, HttpServletRequest httpRequest) {
+        UsuarioResponse logado = obterUsuarioLogado(httpRequest);
+        Usuario usuario = buscarEntidade(logado.id());
 
         String email = usuarioDomainService.normalizarEmail(request.email());
-        usuarioDomainService.garantirEmailDisponivel(email, usuarioId);
+        usuarioDomainService.garantirEmailDisponivel(email, usuario.getId());
 
         usuario.setNome(request.nome().trim());
         usuario.setEmail(email);
-        return UsuarioResponse.from(usuarioRepository.saveAndFlush(usuario));
+
+        UsuarioResponse atualizado = UsuarioResponse.from(usuarioRepository.saveAndFlush(usuario));
+
+        // Atualiza a HttpSession com os novos dados cadastrais
+        httpRequest.getSession().setAttribute(ATTR_USUARIO_LOGADO, atualizado);
+
+        return atualizado;
     }
 
     @Transactional
-    public void alterarSenha(Long usuarioId, AlterarSenhaRequest request) {
-        Usuario usuario = buscarEntidade(usuarioId);
+    public void alterarSenha(AlterarSenhaRequest request, HttpServletRequest httpRequest) {
+        UsuarioResponse logado = obterUsuarioLogado(httpRequest);
+        Usuario usuario = buscarEntidade(logado.id());
 
         usuarioDomainService.validarTrocaDeSenha(usuario, request.senhaAtual(), request.novaSenha());
         usuario.setSenha(usuarioDomainService.criptografarSenha(request.novaSenha()));
         usuarioRepository.save(usuario);
     }
 
-    /** Operação de ADMIN. Usuário que possui quizzes/tentativas não é removido (violação de FK vira 409). */
+    /** Operação de ADMIN: exige usuário autenticado na sessão HTTP e impede autoexclusão. */
     @Transactional
-    public void remover(Long id, UsuarioLogado solicitante) {
-        if (solicitante.id().equals(id)) {
-            throw new BusinessRuleException("Um administrador não pode excluir a própria conta");
-        }
+    public void remover(Long id, HttpServletRequest httpRequest) {
+        UsuarioResponse solicitante = obterUsuarioLogado(httpRequest);
+
+        usuarioDomainService.garantirNaoEhPropriaConta(solicitante.id(), id);
+
         Usuario usuario = buscarEntidade(id);
         usuarioRepository.delete(usuario);
         usuarioRepository.flush();
+    }
+
+    // ---------------- Helpers ----------------
+
+    private UsuarioResponse obterUsuarioLogado(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute(ATTR_USUARIO_LOGADO) == null) {
+            throw new ForbiddenOperationException("Usuário não autenticado. Faça login para continuar.");
+        }
+        return (UsuarioResponse) session.getAttribute(ATTR_USUARIO_LOGADO);
     }
 
     private Usuario buscarEntidade(Long id) {

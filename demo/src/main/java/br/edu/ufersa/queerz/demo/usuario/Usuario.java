@@ -58,15 +58,20 @@ public class Usuario implements UserDetails {
     public String getNome(){return nome;}
     public UserRole getRole(){return role;}
 
+    public String setEmail(String email){return email;}
+    public String setSenha(String senha){return senha;}
+    public String setNome(String nome){return nome;}
+
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities(){
         if(this.role == UserRole.ADMIN){
             return List.of(
-                    new SimpleGrantedAuthority("ROLE_ADMIN"),
-                    new SimpleGrantedAuthority("ROLE_USER")
+                    new SimpleGrantedAuthority("ADMIN"),
+                    new SimpleGrantedAuthority("USER")
             );
         }
-        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        return List.of(new SimpleGrantedAuthority("USER"));
     }
 
     @Override

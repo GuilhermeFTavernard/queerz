@@ -6,21 +6,28 @@ import br.edu.ufersa.queerz.demo.quiz.CorrecaoQuizDomainService.Resultado;
 import br.edu.ufersa.queerz.demo.quiz.Quiz;
 import br.edu.ufersa.queerz.demo.quiz.QuizDomainService;
 import br.edu.ufersa.queerz.demo.quiz.QuizRepository;
+import br.edu.ufersa.queerz.demo.shared.exception.ForbiddenOperationException;
 import br.edu.ufersa.queerz.demo.shared.exception.ResourceNotFoundException;
-import br.edu.ufersa.queerz.demo.shared.security.UsuarioLogado;
-import br.edu.ufersa.queerz.demo.tentativaquiz.dto.FinalizarTentativaRequest;
-import br.edu.ufersa.queerz.demo.tentativaquiz.dto.TentativaResponse;
+import br.edu.ufersa.queerz.demo.tentativaQuiz.dto.FinalizarTentativaRequest;
+import br.edu.ufersa.queerz.demo.tentativaQuiz.dto.TentativaResponse;
 import br.edu.ufersa.queerz.demo.usuario.Usuario;
 import br.edu.ufersa.queerz.demo.usuario.UsuarioRepository;
+import br.edu.ufersa.queerz.demo.usuario.dto.UsuarioResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-/** Casos de uso do jogo individual (usuário logado): registrar tentativa, histórico e ranking. */
+/**
+ * Casos de uso do jogo individual (usuário logado via HttpSession): registrar tentativa, histórico e ranking.
+ */
 @Service
 public class TentativaQuizApplicationService {
+
+    public static final String ATTR_USUARIO_LOGADO = "USUARIO_LOGADO";
 
     private final TentativaQuizRepository tentativaQuizRepository;
     private final QuizRepository quizRepository;
@@ -40,9 +47,11 @@ public class TentativaQuizApplicationService {
         this.correcaoQuizDomainService = correcaoQuizDomainService;
     }
 
-    /** A pontuação é calculada aqui, pelo servidor, a partir das respostas. */
+    /** A pontuação é calculada pelo servidor a partir das respostas e vinculada ao usuário da sessão HTTP. */
     @Transactional
-    public TentativaResponse finalizar(FinalizarTentativaRequest request, UsuarioLogado logado) {
+    public TentativaResponse finalizar(FinalizarTentativaRequest request, HttpServletRequest httpRequest) {
+        UsuarioResponse logado = obterUsuarioLogado(httpRequest);
+
         Quiz quiz = buscarQuiz(request.quizId());
         quizDomainService.garantirPodeVisualizar(quiz, logado);
         quizDomainService.garantirJogavel(quiz);
@@ -66,18 +75,37 @@ public class TentativaQuizApplicationService {
     }
 
     @Transactional(readOnly = true)
-    public List<TentativaResponse> listarMinhas(UsuarioLogado logado) {
+    public List<TentativaResponse> listarMinhas(HttpServletRequest httpRequest) {
+        UsuarioResponse logado = obterUsuarioLogado(httpRequest);
+
         return tentativaQuizRepository.findByUsuarioIdOrderByDataFinalizacaoDesc(logado.id())
-                .stream().map(TentativaResponse::from).toList();
+                .stream()
+                .map(TentativaResponse::from)
+                .toList();
     }
 
     /** Top 10: maior pontuação, desempate pelo menor tempo. */
     @Transactional(readOnly = true)
-    public List<TentativaResponse> ranking(Long quizId, UsuarioLogado logado) {
+    public List<TentativaResponse> ranking(Long quizId, HttpServletRequest httpRequest) {
+        UsuarioResponse logado = obterUsuarioLogado(httpRequest);
+
         Quiz quiz = buscarQuiz(quizId);
         quizDomainService.garantirPodeVisualizar(quiz, logado);
+
         return tentativaQuizRepository.findTop10ByQuizIdOrderByPontuacaoFinalDescTempoTotalGastoAsc(quizId)
-                .stream().map(TentativaResponse::from).toList();
+                .stream()
+                .map(TentativaResponse::from)
+                .toList();
+    }
+
+    // ---------------- Helpers ----------------
+
+    private UsuarioResponse obterUsuarioLogado(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute(ATTR_USUARIO_LOGADO) == null) {
+            throw new ForbiddenOperationException("Usuário não autenticado. Faça login para continuar.");
+        }
+        return (UsuarioResponse) session.getAttribute(ATTR_USUARIO_LOGADO);
     }
 
     private Quiz buscarQuiz(Long id) {

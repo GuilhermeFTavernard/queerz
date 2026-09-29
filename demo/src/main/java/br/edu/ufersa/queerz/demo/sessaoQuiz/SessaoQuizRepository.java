@@ -5,4 +5,5 @@ import java.util.Optional;
 public interface SessaoQuizRepository extends JpaRepository<SessaoQuiz, Long> {
     Optional<SessaoQuiz> findByCodigo(String codigo);
     boolean existsByQuizId(Long quizId);
+    boolean existsByCodigo(String codigo);
 }

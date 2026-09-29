@@ -1,5 +1,6 @@
 package br.edu.ufersa.queerz.demo.sessaoQuiz;
 
+import br.edu.ufersa.queerz.demo.sessaoQuiz.dto.EntrarSessaoRequest;
 import br.edu.ufersa.queerz.demo.sessaoQuiz.dto.ResultadoResponse;
 import br.edu.ufersa.queerz.demo.sessaoQuiz.dto.SubmeterRespostasRequest;
 import br.edu.ufersa.queerz.demo.sessaoQuiz.dto.SessaoResponse;
@@ -63,7 +64,7 @@ public class SessaoQuizApplicationService {
         SessaoQuiz sessao = new SessaoQuiz(quiz, sessaoDomainService.gerarCodigoUnico());
         sessaoQuizRepository.saveAndFlush(sessao);
 
-        return SessaoResponse.from(sessao);
+        return SessaoResponse.from(sessao, List.of());
     }
 
     @Transactional
@@ -81,7 +82,7 @@ public class SessaoQuizApplicationService {
     // ---------------- Jogadores / Participantes ----------------
 
     @Transactional
-    public SessaoResponse entrar(SessaoResponse request, HttpServletRequest httpRequest) {
+    public SessaoResponse entrar(EntrarSessaoRequest request, HttpServletRequest httpRequest) {
         SessaoQuiz sessao = buscarSessaoAtiva(request.codigoPin());
         String apelido = request.apelido() != null ? request.apelido().trim() : "";
 
@@ -96,7 +97,7 @@ public class SessaoQuizApplicationService {
         session.setAttribute(ATTR_SESSAO_CODIGO, sessao.getCodigo());
         session.setAttribute(ATTR_JOGADOR_APELIDO, apelido);
 
-        return SessaoResponse.from(sessao);
+        return SessaoResponse.from(sessao, List.of());
     }
 
     @Transactional(readOnly = true)

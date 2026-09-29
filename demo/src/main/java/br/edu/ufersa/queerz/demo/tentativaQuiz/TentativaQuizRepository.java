@@ -10,4 +10,6 @@ public interface TentativaQuizRepository extends JpaRepository<TentativaQuiz , L
     List<TentativaQuiz> findByQuiz(Quiz quiz);
     List<TentativaQuiz> findByUsuario(Usuario usuario);
     boolean existsByQuizId(Long quizId);
+    List <TentativaQuiz> findByUsuarioIdOrderByDataFinalizacaoDesc(Long userId);
+    List <TentativaQuiz> findTop10ByQuizIdOrderByPontuacaoFinalDescTempoTotalGastoAsc(Long quizId);
 }
