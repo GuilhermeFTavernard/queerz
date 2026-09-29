@@ -1,10 +1,8 @@
 package br.edu.ufersa.queerz.demo.pergunta;
 
 import br.edu.ufersa.queerz.demo.alternativa.Alternativa;
-<<<<<<< HEAD
+import br.edu.ufersa.queerz.demo.quiz.Quiz;
 import br.edu.ufersa.queerz.demo.shared.exception.ResourceNotFoundException;
-=======
->>>>>>> e4c5c6a5817eaaef7641ebdb501b9cfe8a1665b7
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +21,9 @@ public class Pergunta {
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Alternativa> alternativas = new ArrayList<>();
+
+
+    private Quiz quiz;
 
     public Pergunta() {
     }
@@ -45,6 +46,14 @@ public class Pergunta {
 
     public void setTempoResposta(int tempoResposta) {
         this.tempoResposta = tempoResposta;
+    }
+
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
     }
 
     public List<Alternativa> getAlternativas() {

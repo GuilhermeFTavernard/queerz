@@ -104,7 +104,7 @@ public class PerguntaApplicationService {
         Pergunta pergunta = localizarPergunta(quiz, perguntaId);
 
         prepararEdicao(quiz, logado);
-        perguntaDomainService.validarAlternativa(pergunta, null, request);
+        perguntaDomainService.validarAlternativa(pergunta, null, request.texto(), request.correta());
 
         Alternativa alternativa = alternativaMapper.toEntity(request);
         pergunta.getAlternativas().add(alternativa);
@@ -120,8 +120,8 @@ public class PerguntaApplicationService {
         Pergunta pergunta = localizarPergunta(quiz, perguntaId);
 
         prepararEdicao(quiz, logado);
-        Alternativa alternativa = localizarAlternativa(pergunta, alternativaId);
-        perguntaDomainService.validarAlternativa(pergunta, alternativa, request);
+        Alternativa alternativa = pergunta.localizarAlternativa(alternativaId);
+        perguntaDomainService.validarAlternativa(pergunta, alternativa, request.texto(), request.correta());
 
         alternativaMapper.updateEntity(request, alternativa);
         return AlternativaResponse.from(alternativa);
@@ -134,7 +134,7 @@ public class PerguntaApplicationService {
         Pergunta pergunta = localizarPergunta(quiz, perguntaId);
 
         prepararEdicao(quiz, logado);
-        Alternativa alternativa = localizarAlternativa(pergunta, alternativaId);
+        Alternativa alternativa = pergunta.localizarAlternativa(alternativaId);
 
         pergunta.getAlternativas().remove(alternativa);
         quizRepository.flush();
