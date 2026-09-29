@@ -1,13 +1,12 @@
-package br.edu.ufersa.queerz.demo.tentativaQuiz.quiz;
+package br.edu.ufersa.queerz.demo.tentativaQuiz;
 
-import br.edu.ufersa.queerz.demo.quiz.tentativaQuizController;
 import br.edu.ufersa.queerz.demo.tentativaQuiz.TentativaQuiz;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/tentativa")
-public class tentativaQuizController {
+public class TentativaQuizController {
 
     @PostMapping("/iniciar")
     public String iniciar() {

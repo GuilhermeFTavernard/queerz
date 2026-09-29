@@ -1,6 +1,6 @@
 package br.edu.ufersa.queerz.demo.jogo.dto;
 
-import br.edu.ufersa.queerz.demo.jogo.Jogo;
+import br.edu.ufersa.queerz.demo.jogo.SessaoQuiz;
 
 public record SessaoResponse(
         String codigo,

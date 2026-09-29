@@ -1,5 +1,6 @@
 package br.edu.ufersa.queerz.demo.pergunta;
 
+import br.edu.ufersa.queerz.demo.alternativa.Alternativa;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

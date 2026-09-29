@@ -1,6 +1,6 @@
 package br.edu.ufersa.queerz.demo.jogo.dto;
 
-import br.edu.ufersa.queerz.demo.tentativaquiz.dto.RespostaRequest;
+import br.edu.ufersa.queerz.demo.tentativaQuiz.dto.RespostaRequest;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 
