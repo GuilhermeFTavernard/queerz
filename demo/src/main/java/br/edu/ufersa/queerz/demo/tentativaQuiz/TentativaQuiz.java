@@ -1,6 +1,8 @@
-package br.edu.ufersa.queerz.demo.quiz;
+package br.edu.ufersa.queerz.demo.tentativaQuiz;
 
 
+import br.edu.ufersa.queerz.demo.quiz.Quiz;
+import br.edu.ufersa.queerz.demo.usuario.Usuario;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 

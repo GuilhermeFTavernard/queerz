@@ -1,4 +1,4 @@
-package br.edu.ufersa.queerz.demo.tentativaquiz.dto;
+package br.edu.ufersa.queerz.demo.tentativaQuiz.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

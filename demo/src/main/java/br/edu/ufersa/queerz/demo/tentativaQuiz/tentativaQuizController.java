@@ -1,6 +1,7 @@
-package br.edu.ufersa.queerz.demo.quiz;
+package br.edu.ufersa.queerz.demo.tentativaQuiz.quiz;
 
 import br.edu.ufersa.queerz.demo.quiz.tentativaQuizController;
+import br.edu.ufersa.queerz.demo.tentativaQuiz.TentativaQuiz;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
