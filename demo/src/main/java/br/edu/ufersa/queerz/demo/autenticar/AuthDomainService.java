@@ -17,7 +17,7 @@ public class AuthDomainService {
 
     public void validarCredenciais(Usuario usuario, String senhaPura) {
         // Mesma mensagem para "usuário nulo" e "senha errada" evita enumeração de usuários
-        if (usuario == null || !passwordEncoder.matches(senhaPura, usuario.getSenha())) {
+        if (usuario == null || !passwordEncoder.matches(senhaPura, usuario.getPassword())) {
             throw new InvalidCredentialsException("E-mail ou senha inválidos");
         }
     }

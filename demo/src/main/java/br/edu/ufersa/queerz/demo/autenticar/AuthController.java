@@ -1,32 +1,32 @@
 package br.edu.ufersa.queerz.demo.autenticar;
 
 import br.edu.ufersa.queerz.demo.autenticar.dto.LoginRequest;
-import br.edu.ufersa.queerz.demo.autenticar.dto.TokenResponse;
-import br.edu.ufersa.queerz.demo.shared.exception.DuplicateResourceException;
-import br.edu.ufersa.queerz.demo.usuario.Usuario;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
+import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
-    private final TokenService tokenService;
+    private final SecurityContextRepository securityContextRepository =
+            new HttpSessionSecurityContextRepository();
 
-    public AuthController(AuthenticationManager authenticationManager, TokenService tokenService) {
+    public AuthController(AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
-        this.tokenService = tokenService;
     }
 
     @GetMapping("/cadastro")
@@ -39,23 +39,25 @@ public class AuthController {
                             @RequestParam String email,
                             @RequestParam String senha,
                             RedirectAttributes redirectAttributes) {
-
+        // (hoje não salva nada)
         redirectAttributes.addFlashAttribute("mensagemSucesso", "Cadastro realizado! Faça login.");
         return "redirect:/login";
     }
 
+    @ResponseBody
     @GetMapping("/login")
     public String telaLogin(Model model) {
         if (!model.containsAttribute("loginRequest")) {
             model.addAttribute("loginRequest", new LoginRequest("", ""));
         }
-        return "login";
+        return "HELLO WORLD";
     }
 
     @PostMapping("/login")
     public String realizarLogin(@Valid @ModelAttribute("loginRequest") LoginRequest request,
                                 BindingResult result,
-                                RedirectAttributes redirectAttributes,
+                                HttpServletRequest httpRequest,
+                                HttpServletResponse httpResponse,
                                 Model model) {
 
         if (result.hasErrors()) {
@@ -63,14 +65,20 @@ public class AuthController {
         }
 
         try {
-            var authToken = new UsernamePasswordAuthenticationToken(request.email(), request.senha());
-            Authentication authentication = authenticationManager.authenticate(authToken);
+            Authentication authentication = authenticationManager.authenticate(
+                    UsernamePasswordAuthenticationToken.unauthenticated(request.email(), request.senha()));
 
-            Usuario usuarioAutenticado = (Usuario) authentication.getPrincipal();
-            String tokenJWT = tokenService.gerarToken(usuarioAutenticado);
-            TokenResponse tokenResponse = TokenResponse.bearer(tokenJWT, 7200);
+            // evita fixação de sessão: troca o id se já existia uma sessão
+            if (httpRequest.getSession(false) != null) {
+                httpRequest.changeSessionId();
+            }
 
-            redirectAttributes.addFlashAttribute("tokenResponse", tokenResponse);
+            // grava o usuário logado na HttpSession
+            SecurityContext context = SecurityContextHolder.createEmptyContext();
+            context.setAuthentication(authentication);
+            SecurityContextHolder.setContext(context);
+            securityContextRepository.saveContext(context, httpRequest, httpResponse);
+
             return "redirect:/home";
 
         } catch (AuthenticationException ex) {

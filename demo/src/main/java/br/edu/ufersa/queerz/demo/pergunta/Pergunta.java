@@ -22,7 +22,7 @@ public class Pergunta {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Alternativa> alternativas = new ArrayList<>();
 
-
+    @ManyToOne
     private Quiz quiz;
 
     public Pergunta() {

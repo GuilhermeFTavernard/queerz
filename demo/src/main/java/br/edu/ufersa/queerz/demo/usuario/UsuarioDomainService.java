@@ -43,10 +43,10 @@ public class UsuarioDomainService {
     }
 
     public void validarTrocaDeSenha(Usuario usuario, String senhaAtual, String novaSenha) {
-        if (!passwordEncoder.matches(senhaAtual, usuario.getSenha())) {
+        if (!passwordEncoder.matches(senhaAtual, usuario.getPassword())) {
             throw new BusinessRuleException("A senha atual está incorreta");
         }
-        if (passwordEncoder.matches(novaSenha, usuario.getSenha())) {
+        if (passwordEncoder.matches(novaSenha, usuario.getPassword())) {
             throw new BusinessRuleException("A nova senha deve ser diferente da senha atual");
         }
     }

@@ -18,6 +18,7 @@ public class Quiz {
 
     private String descricao;
 
+    @ManyToOne
     private Usuario criador;
 
     @Enumerated(EnumType.STRING)
@@ -57,9 +58,7 @@ public class Quiz {
     public Usuario getCriador() {
         return criador;
     }
-    public Usuario setCriador(Usuario user) {
-        return criador;
-    }
+    public void setCriador(Usuario user) {this.criador = user;}
 
     public Privacidade getPrivacidade() {
         return privacidade;
