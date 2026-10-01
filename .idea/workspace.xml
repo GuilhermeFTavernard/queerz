@@ -4,261 +4,97 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62917eab-d7cf-41a8-b305-8a812320daee" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-=======
-      <change beforePath="$PROJECT_DIR$/demo/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/autenticar/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/autenticar/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/autenticar/AuthDomainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/autenticar/AuthDomainService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/autenticar/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/autenticar/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/autenticar/SecurityFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/autenticar/TokenService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/pergunta/Pergunta.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/pergunta/Pergunta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/Quiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/quiz/Quiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UsuarioDomainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario/UsuarioDomainService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/application.properties" afterDir="false" />
->>>>>>> da7c5aa (Resolvido Conflitos e melhoria do SecurityBoot + adição do banco de dados em breve)
-    </list>
+    <list default="true" id="0e58b0a7-077f-406a-892a-3a22c1b91221" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-<<<<<<< HEAD
-=======
-        <option value="Interface" />
-        <option value="Record" />
-        <option value="Exception" />
->>>>>>> da7c5aa (Resolvido Conflitos e melhoria do SecurityBoot + adição do banco de dados em breve)
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;GuilhermeFTavernard&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/GuilhermeFTavernard/queerz.git&quot;,
-    &quot;accountId&quot;: &quot;cbbe67bc-d641-4652-837c-c133f7c4c0e1&quot;
-  }
-}</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/demo/pom.xml" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="SKIP_INSPECTION" />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="2.044756382534432E-96" />
-      <entry key="S5" value="9.874824198534304E-39" />
-      <entry key="S10" value="1.7107487832041583E-19" />
-      <entry key="S30" value="1.1531890653756753E-6" />
-      <entry key="S60" value="0.0018596872489732579" />
-      <entry key="M2" value="0.07473565218917455" />
-      <entry key="M5" value="0.750111137991532" />
-      <entry key="M10" value="2.4695374292974344" />
-      <entry key="M15" value="4.560166792717477" />
-      <entry key="M30" value="9.665665871969479" />
-      <entry key="H1" value="14.727962575747702" />
-      <entry key="H2" value="18.353931044879484" />
-      <entry key="H4" value="20.53254564715972" />
-      <entry key="D1" value="22.567077072507463" />
-      <entry key="W1" value="22.937600367477373" />
+      <entry key="MS100" value="1.0000000000069313" />
+      <entry key="MS500" value="1.0058635902246655" />
+      <entry key="S2" value="1.2767292765241303" />
+      <entry key="S5" value="1.6077731536021065" />
+      <entry key="S10" value="1.8738859574421634" />
+      <entry key="S30" value="2.5582831350394057" />
+      <entry key="S60" value="3.2169069752543162" />
+      <entry key="M2" value="3.870528158899738" />
+      <entry key="M5" value="4.469681695185962" />
+      <entry key="M10" value="4.71936174363149" />
+      <entry key="M15" value="4.809263156228946" />
+      <entry key="M30" value="4.902754981304902" />
+      <entry key="H1" value="4.950897867033458" />
+      <entry key="H2" value="4.975327691303169" />
+      <entry key="H4" value="4.987633366340932" />
+      <entry key="D1" value="4.997934646748389" />
+      <entry key="W1" value="4.99970484532323" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0" />
-      <entry key="S60" value="1.0000000000768356" />
-      <entry key="M2" value="1.0000087655942687" />
-      <entry key="M5" value="1.009486642744228" />
-      <entry key="M10" value="1.097399398069126" />
-      <entry key="M15" value="1.2116918712882854" />
-      <entry key="M30" value="1.4600998492591422" />
-      <entry key="H1" value="1.6783066041688983" />
-      <entry key="H2" value="1.8235937130460007" />
-      <entry key="H4" value="1.9075206405619656" />
-      <entry key="D1" value="1.9839569218983168" />
-      <entry key="W1" value="1.9976922154037036" />
+      <entry key="MS100" value="1.2589499284766467E-136" />
+      <entry key="MS500" value="6.610029217834834E-28" />
+      <entry key="S2" value="1.8386993133399606E-7" />
+      <entry key="S5" value="0.0028398462216167116" />
+      <entry key="S10" value="0.07964439410390498" />
+      <entry key="S30" value="0.8449800781676439" />
+      <entry key="S60" value="1.5776956120555519" />
+      <entry key="M2" value="2.170319156691533" />
+      <entry key="M5" value="2.634047980518459" />
+      <entry key="M10" value="2.8107928903235253" />
+      <entry key="M15" value="2.8724330629538453" />
+      <entry key="M30" value="2.9354907101764587" />
+      <entry key="H1" value="2.9675617309410933" />
+      <entry key="H2" value="2.983734685373922" />
+      <entry key="H4" value="2.9918557632187186" />
+      <entry key="D1" value="2.9986410160114287" />
+      <entry key="W1" value="2.9998058199341533" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.3656998762939028E-5" />
-      <entry key="MS500" value="0.10643171346861814" />
-      <entry key="S2" value="0.5711731234242726" />
-      <entry key="S5" value="0.7992950168541698" />
-      <entry key="S10" value="0.8940330065798296" />
-      <entry key="S30" value="0.9633520285581786" />
-      <entry key="S60" value="0.983325898741261" />
-      <entry key="M2" value="1.064683570331618" />
-      <entry key="M5" value="1.7529308255224532" />
-      <entry key="M10" value="3.560978740445406" />
-      <entry key="M15" value="5.765982836525075" />
-      <entry key="M30" value="11.120560955825614" />
-      <entry key="H1" value="16.402547061627402" />
-      <entry key="H2" value="20.175262193989813" />
-      <entry key="H4" value="22.438814246229565" />
-      <entry key="D1" value="24.55080650903204" />
-      <entry key="W1" value="24.935259595309102" />
+      <entry key="MS100" value="0.8645372313140689" />
+      <entry key="MS500" value="0.9770424589636414" />
+      <entry key="S2" value="1.2679474710859324" />
+      <entry key="S5" value="1.605798958565234" />
+      <entry key="S10" value="1.942908468551652" />
+      <entry key="S30" value="3.3698050387368093" />
+      <entry key="S60" value="4.762278716663646" />
+      <entry key="M2" value="6.018100283462093" />
+      <entry key="M5" value="7.092515213546836" />
+      <entry key="M10" value="7.524138674920984" />
+      <entry key="M15" value="7.6775900984062355" />
+      <entry key="M30" value="7.8361436746115425" />
+      <entry key="H1" value="7.917396117344011" />
+      <entry key="H2" value="7.958527488721891" />
+      <entry key="H4" value="7.979220894944269" />
+      <entry key="D1" value="7.996530846862028" />
+      <entry key="W1" value="7.999504260285091" />
     </decayedShown>
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6,
-  &quot;fromUser&quot;: false
-}</component>
-  <component name="ProjectId" id="3J3KHekaFgoH25ffB03WFMzWW94" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
-<<<<<<< HEAD
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ApiV2&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/guita/Downloads/demo&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Spring Boot.DemoApplication.executor": "Run",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "Lucas",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Win11/queerz/demo/src/main/java/br/edu/ufersa/queerz/demo/usuario",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
->>>>>>> da7c5aa (Resolvido Conflitos e melhoria do SecurityBoot + adição do banco de dados em breve)
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\guita\Downloads\demo\demo\src\main\java\br\edu\ufersa\queerz" />
-    </key>
-  </component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-26" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+    <configuration default="true" type="JetRunConfigurationType">
       <module name="demo" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="br.edu.ufersa.queerz.demo.DemoApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-  </component>
-  <component name="StructureViewState">
-    <option name="selectedTab" value="Logical" />
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="demo" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="62917eab-d7cf-41a8-b305-8a812320daee" name="Changes" comment="" />
-      <created>1788884225756</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1788884225756</updated>
-      <workItem from="1788884227110" duration="6741000" />
-      <workItem from="1788894442335" duration="3280000" />
-      <workItem from="1788952197997" duration="390000" />
-      <workItem from="1788961169985" duration="2820000" />
-      <workItem from="1788990746730" duration="4831000" />
-      <workItem from="1789560097260" duration="19000" />
-      <workItem from="1789674018261" duration="819000" />
-      <workItem from="1789674859808" duration="1048000" />
-      <workItem from="1789675933980" duration="5000" />
-      <workItem from="1789676171327" duration="23000" />
-      <workItem from="1789685228202" duration="17000" />
-      <workItem from="1789685380259" duration="70000" />
-    </task>
-    <task id="LOCAL-00001" summary="alteração pequena">
-      <option name="closed" value="true" />
-      <created>1788894985078</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1788894985078</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Criei os métodos quiz e sair">
-      <option name="closed" value="true" />
-      <created>1788963901460</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1788963901461</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="alteração pequena" />
-    <MESSAGE value="Criei os métodos quiz e sair" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criei os métodos quiz e sair" />
   </component>
 </project>

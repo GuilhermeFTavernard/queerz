@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_jogo")
-public class Jogo {
+public class SessaoQuiz {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class Jogo {
     @Column(nullable = false)
     private boolean ativo;
 
-    public Jogo() {
+    public SessaoQuiz() {
     }
 
     public Long getId() {return id;}
