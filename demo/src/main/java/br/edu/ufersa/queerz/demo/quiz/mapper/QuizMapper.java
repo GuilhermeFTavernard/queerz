@@ -2,16 +2,15 @@ package br.edu.ufersa.queerz.demo.quiz.mapper;
 
 import br.edu.ufersa.queerz.demo.quiz.Quiz;
 import br.edu.ufersa.queerz.demo.quiz.dto.QuizRequest;
+import br.edu.ufersa.queerz.demo.usuario.Usuario;
 import org.springframework.stereotype.Component;
 
 /** Converte QuizRequest -> entidade. A saída está em QuizResponse / QuizDetalheResponse / QuizJogoResponse.from(...). */
 @Component
 public class QuizMapper {
 
-    public Quiz toEntity(QuizRequest request) {
-        Quiz quiz = new Quiz();
-        updateEntity(request, quiz);
-        return quiz;
+    public Quiz toEntity(QuizRequest request, Usuario criador) {
+        return new Quiz(request.titulo(), request.descricao(), request.privacidade(), criador);
     }
 
     public void updateEntity(QuizRequest request, Quiz quiz) {

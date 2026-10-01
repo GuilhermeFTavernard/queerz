@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Casos de uso de Usuário: coordena transação, repositório, regras de domínio,
@@ -20,6 +22,7 @@ import java.util.List;
  */
 @Service
 public class UsuarioApplicationService {
+    private static final Logger log = LoggerFactory.getLogger(UsuarioApplicationService.class);
 
     public static final String ATTR_USUARIO_LOGADO = "USUARIO_LOGADO";
 
@@ -38,12 +41,13 @@ public class UsuarioApplicationService {
     /** Cadastro público: sempre nasce com o perfil USER. */
     @Transactional
     public UsuarioResponse cadastrar(UsuarioRequest request) {
+
+        log.info("Chegou aqui!");
         String email = usuarioDomainService.normalizarEmail(request.email());
         usuarioDomainService.garantirEmailDisponivel(email);
 
         String senhaCriptografada = usuarioDomainService.criptografarSenha(request.senha());
         Usuario usuario = usuarioMapper.toEntity(request, senhaCriptografada);
-
         return UsuarioResponse.from(usuarioRepository.saveAndFlush(usuario));
     }
 

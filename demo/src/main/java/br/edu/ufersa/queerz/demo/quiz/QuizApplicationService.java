@@ -62,14 +62,9 @@ public class QuizApplicationService {
         Usuario criador = usuarioRepository.findById(logado.id())
                 .orElseThrow(() -> new ResourceNotFoundException("Usuário", logado.id()));
 
-        Quiz quiz = quizMapper.toEntity(request);
-        quiz.setCriador(criador);
-        return QuizResponse.from(quizRepository.save(quiz));
-    }
 
-    @Transactional
-    public QuizResponse criar(QuizRequest request) {
-        return criar(request, this.httpRequest);
+        Quiz quiz = quizMapper.toEntity(request, criador);
+        return QuizResponse.from(quizRepository.save(quiz));
     }
 
     @Transactional

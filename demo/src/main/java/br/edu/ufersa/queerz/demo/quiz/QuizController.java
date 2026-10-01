@@ -7,7 +7,11 @@ import br.edu.ufersa.queerz.demo.quiz.dto.*;
 import br.edu.ufersa.queerz.demo.shared.exception.BusinessRuleException;
 import br.edu.ufersa.queerz.demo.shared.exception.ForbiddenOperationException;
 import br.edu.ufersa.queerz.demo.shared.exception.ResourceNotFoundException;
+import br.edu.ufersa.queerz.demo.usuario.UsuarioApplicationService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +38,7 @@ public class QuizController {
     }
 
     // Listar quizzes do usuário autenticado e buscar por nome entre eles
+    @ResponseBody
     @GetMapping("/meus-quizzes")
     public String listarMeusQuizzes(@RequestParam(value = "busca", required = false) String busca,
                                     HttpServletRequest httpRequest,
@@ -58,20 +63,26 @@ public class QuizController {
         return "quizzes/form-quiz";
     }
 
+    private static final Logger log = LoggerFactory.getLogger(QuizController.class);
+
     // Criar novo quiz
+    @ResponseBody
     @PostMapping("/quizzes")
     public String criarQuiz(@ModelAttribute QuizRequest request,
                             HttpServletRequest httpRequest,
                             RedirectAttributes redirectAttributes) {
+
+    log.info("Chegou quiz");
+
         try {
             QuizResponse novoQuiz = quizApplicationService.criar(request, httpRequest);
             redirectAttributes.addFlashAttribute("mensagemSucesso", "Quiz criado com sucesso!");
-            return "redirect:/quizzes/" + novoQuiz.id() + "/gerenciar";
+            return "Quiz criado!";
         } catch (BusinessRuleException e) {
             redirectAttributes.addFlashAttribute("mensagemErro", e.getMessage());
-            return "redirect:/quizzes/novo";
+            return "erro 1";
         } catch (ForbiddenOperationException e) {
-            return "redirect:/login";
+            return "erro 2";
         }
     }
 

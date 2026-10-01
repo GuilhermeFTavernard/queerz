@@ -18,7 +18,7 @@ public class Usuario implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_name", nullable = false, length = 150)
+    @Column(name = "nome", nullable = false, length = 150)
     private String nome;
 
     @Column(nullable = false, unique = true, length = 150)
@@ -31,8 +31,14 @@ public class Usuario implements UserDetails {
     @Column(nullable = false)
     private UserRole role;
 
-    // A classe UsuarioMapper pediu e fez sozinho isso (VOU CONFIAR NE)
-    public Usuario(@NotBlank(message = "O nome é obrigatório") @Size(min = 3, max = 150, message = "O nome deve ter entre 3 e 150 caracteres") String nome, @NotBlank(message = "O e-mail é obrigatório") @Email(message = "E-mail em formato inválido") @Size(max = 150, message = "O e-mail deve ter no máximo 150 caracteres") String email, String senhaCriptografada, UserRole userRole) {
+    public Usuario() {
+    }
+
+    public Usuario(String nome, String email, String senhaCriptografada, UserRole userRole) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senhaCriptografada;
+        this.role = (role!= null) ? role : UserRole.USER;
     }
 
     // UserDetails

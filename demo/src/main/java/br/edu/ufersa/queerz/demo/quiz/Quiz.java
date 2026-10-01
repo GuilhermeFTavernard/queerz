@@ -36,6 +36,16 @@ public class Quiz {
     public Quiz() {
     }
 
+    public Quiz(String titulo, String descricao, Privacidade privacidade, Usuario criador) {
+        if (criador == null) {
+            throw new IllegalArgumentException("O quiz precisa ter um criador");
+        }
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.privacidade = privacidade;
+        this.criador = criador;
+    }
+
     public Long getId() {
         return id;
     }
