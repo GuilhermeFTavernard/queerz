@@ -40,7 +40,6 @@ public class AuthController {
         return "cadastro";
     }
 
-    @ResponseBody
     @PostMapping("/cadastro")
     public String cadastrar(@Valid @ModelAttribute("usuarioRequest") UsuarioRequest request,
                             BindingResult result,
