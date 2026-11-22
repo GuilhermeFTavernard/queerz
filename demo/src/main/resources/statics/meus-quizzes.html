@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meus quizzes — Queerz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Nunito:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="navbar">
+      <a class="logo" href="meus-quizzes.html" aria-label="Queerz — meus quizzes">Queer<span>z</span></a>
+      <nav class="navbar__actions" aria-label="Principal">
+        <span class="navbar__user" id="user-name">Olá,</span>
+        <a class="btn btn--ghost" href="publicos.html">Quizzes públicos</a>
+        <a class="btn btn--ghost" href="meus-quizzes.html" aria-current="page">Meus Quizzes</a>
+        <button class="btn btn--soft" type="button" id="logout-btn">Sair</button>
+      </nav>
+    </header>
+
+    <main class="page">
+      <div class="page-head is-empty" id="page-head">
+        <div>
+          <h1 class="page-title">Meus Quizzes</h1>
+          <p class="page-subtitle" id="quiz-count">0 quizzes criados</p>
+        </div>
+        <a class="btn btn--orange" href="editor.html">+ Novo Quiz</a>
+      </div>
+
+      <!-- Estado vazio -->
+      <section class="card empty" id="empty-state">
+        <img class="empty__icon" data-icon src="assets/icon-empty.svg" width="41" height="41" alt="" />
+        <h2 class="empty__title">Nenhum quiz ainda</h2>
+        <p class="empty__text">Crie seu primeiro quiz e compartilhe com o mundo!</p>
+        <a class="btn btn--primary" href="editor.html">Criar primeiro quiz</a>
+      </section>
+
+      <!-- Lista de quizzes (preenchida pelo JS) -->
+      <section class="quiz-list" id="quiz-list" aria-label="Seus quizzes" hidden></section>
+    </main>
+  </div>
+
+  <script src="js/mock-api.js"></script>
+  <script src="js/quiz-store.js"></script>
+  <script src="js/shell.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/meus-quizzes.js"></script>
+</body>
+</html>

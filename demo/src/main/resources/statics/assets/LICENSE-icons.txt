@@ -1,0 +1,3 @@
+Icones em assets/*.svg derivados do Lucide (https://lucide.dev), licenca ISC.
+Copyright (c) Lucide Icons and Contributors.
+Permissao para usar, copiar, modificar e distribuir, com ou sem custo, concedida desde que este aviso seja mantido.

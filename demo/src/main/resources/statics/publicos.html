@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quizzes públicos — Queerz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Nunito:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="navbar">
+      <a class="logo" href="index.html" aria-label="Queerz — página inicial">Queer<span>z</span></a>
+      <nav class="navbar__actions" aria-label="Principal">
+        <span class="navbar__user" id="user-name" hidden></span>
+        <a class="btn btn--ghost" href="publicos.html" aria-current="page">Quizzes públicos</a>
+        <a class="btn btn--ghost" href="meus-quizzes.html" id="my-quizzes-link" hidden>Meus Quizzes</a>
+        <button class="btn btn--soft" type="button" id="logout-btn" hidden>Sair</button>
+        <a class="btn btn--ghost" href="login.html" id="login-link" hidden>Entrar</a>
+        <a class="btn btn--primary" href="cadastro.html" id="signup-link" hidden>Cadastrar</a>
+      </nav>
+    </header>
+
+    <main class="page">
+      <div class="page-head" id="page-head">
+        <div>
+          <h1 class="page-title">Quizzes públicos</h1>
+          <p class="page-subtitle" id="quiz-count">0 quizzes criados</p>
+        </div>
+        <button class="btn btn--orange" type="button" id="open-code">Entrar com código</button>
+      </div>
+
+      <section class="card empty" id="empty-state" hidden>
+        <img class="empty__icon" data-icon src="assets/icon-empty.svg" width="41" height="41" alt="" />
+        <h2 class="empty__title">Nenhum quiz ainda</h2>
+        <p class="empty__text">Ainda não há quizzes públicos. Seja o primeiro a criar um!</p>
+        <a class="btn btn--primary" href="editor.html">Criar quiz</a>
+      </section>
+
+      <section class="quiz-list" id="quiz-list" aria-label="Quizzes públicos" hidden></section>
+    </main>
+  </div>
+
+  <!-- Janela: Entrar com código -->
+  <dialog class="dialog" id="code-dialog" aria-labelledby="code-title">
+    <form id="code-form" novalidate>
+      <h2 class="dialog__title" id="code-title">Entrar com código</h2>
+      <p class="dialog__text">Digite o código de 6 dígitos do quiz.</p>
+
+      <div class="field">
+        <label class="field__label" for="code-input">Código do quiz</label>
+        <input class="field__input field__input--code" id="code-input" type="text" inputmode="numeric" maxlength="6" placeholder="000000" autocomplete="off" />
+        <p class="field__error" id="code-error" hidden></p>
+      </div>
+
+      <div class="dialog__actions">
+        <button class="btn btn--ghost" type="button" id="code-cancel">Cancelar</button>
+        <button class="btn btn--orange" type="submit">Entrar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="js/mock-api.js"></script>
+  <script src="js/quiz-store.js"></script>
+  <script src="js/shell.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/publicos.js"></script>
+</body>
+</html>

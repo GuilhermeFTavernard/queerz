@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Queerz — Crie, compartilhe e ranqueie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Nunito:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="navbar">
+      <a class="logo" href="index.html" aria-label="Queerz — página inicial">Queer<span>z</span></a>
+      <nav class="navbar__actions" aria-label="Principal">
+        <a class="btn btn--ghost" href="login.html">Entrar</a>
+        <a class="btn btn--primary" href="cadastro.html">Cadastrar</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <span class="badge">Crie · Compartilhe · Ranqueie</span>
+
+      <h1 class="hero__title">
+        <span class="hero__headline">Coloque seu conhecimento à prova com o</span>
+        <span class="hero__brand">Queerz</span>
+      </h1>
+
+      <p class="hero__text">
+        Crie quizzes incríveis em minutos, compartilhe com qualquer pessoa e veja o ranking em tempo real.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="cadastro.html">⚡ Criar conta grátis</a>
+        <a class="btn btn--secondary btn--lg" href="login.html">Login</a>
+      </div>
+
+      <section class="features" aria-label="Como funciona">
+        <article class="card feature">
+          <img class="feature__icon" data-icon src="assets/icon-puzzle.svg" width="36" height="35" alt="" />
+          <h2 class="feature__title">Monte o quiz</h2>
+          <p class="feature__text">Adicione perguntas e alternativas com marcação da resposta correta.</p>
+        </article>
+
+        <article class="card feature">
+          <img class="feature__icon" data-icon src="assets/icon-send.svg" width="36" height="35" alt="" />
+          <h2 class="feature__title">Compartilhe o link</h2>
+          <p class="feature__text">Gere um link público. Ninguém precisa se cadastrar para responder.</p>
+        </article>
+
+        <article class="card feature">
+          <img class="feature__icon" data-icon src="assets/icon-trophy.svg" width="36" height="35" alt="" />
+          <h2 class="feature__title">Veja o ranking</h2>
+          <p class="feature__text">Acompanhe todas as respostas ordenadas por pontuação.</p>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script src="js/icons.js"></script>
+</body>
+</html>

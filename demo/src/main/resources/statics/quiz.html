@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Participar do quiz — Queerz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Outfit:wght@400;500;600;700;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/game.css" />
+</head>
+<body class="game">
+  <!-- Quiz não encontrado -->
+  <section class="intro" id="view-notfound" hidden>
+    <div class="intro__card notfound">
+      <h1>Quiz não encontrado</h1>
+      <p>Confira o link ou o código e tente de novo.</p>
+      <a class="btn btn--primary" href="publicos.html">Ver quizzes públicos</a>
+    </div>
+  </section>
+
+  <!-- Antes de começar: nome do participante -->
+  <section class="intro" id="view-intro" hidden>
+    <div class="intro__logo" aria-label="Queerz">Queer<span>z</span></div>
+
+    <div class="intro__card">
+      <div class="intro__tile">
+        <img data-icon src="assets/icon-empty.svg" width="41" height="41" alt="" />
+      </div>
+
+      <h1 class="intro__title" id="intro-title"></h1>
+
+      <div class="intro__tags">
+        <span class="tag tag--people" id="intro-people"></span>
+        <span class="tag tag--questions" id="intro-questions"></span>
+      </div>
+
+      <form class="intro__form" id="name-form" novalidate>
+        <label class="intro__label" for="player-name">Seu nome (aparece no ranking)</label>
+        <input class="intro__input" id="player-name" type="text" maxlength="30" placeholder="Como quer ser chamado?" autocomplete="nickname" />
+        <button class="intro__submit" id="start-btn" type="submit" disabled>Começar Quiz</button>
+      </form>
+    </div>
+
+    <a class="intro__back" href="publicos.html">← Voltar para os quizzes públicos</a>
+  </section>
+
+  <!-- Durante o jogo -->
+  <div id="view-game" hidden>
+    <header class="g-header">
+      <span class="g-logo">Queerz</span>
+      <div class="g-header__right">
+        <span class="g-name" id="g-name"></span>
+        <span class="g-pill" id="g-pill"></span>
+      </div>
+    </header>
+    <div class="g-progress"><div class="g-progress__bar" id="g-bar"></div></div>
+    <main id="g-main"></main>
+  </div>
+
+  <script src="js/mock-api.js"></script>
+  <script src="js/quiz-store.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

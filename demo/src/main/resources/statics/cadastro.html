@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Criar conta — Queerz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Nunito:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="navbar">
+      <a class="logo" href="index.html" aria-label="Queerz — página inicial">Queer<span>z</span></a>
+      <nav class="navbar__actions" aria-label="Principal">
+        <a class="btn btn--ghost" href="login.html">Entrar</a>
+        <a class="btn btn--primary" href="cadastro.html" aria-current="page">Cadastrar</a>
+      </nav>
+    </header>
+
+    <main class="auth">
+      <div class="auth__header">
+        <div class="logo logo--lg">Queer<span>z</span></div>
+        <p class="auth__subtitle">Crie sua conta e comece a fazer quizzes</p>
+      </div>
+
+      <div class="card">
+        <p class="alert alert--error" id="form-error" role="alert" hidden></p>
+
+        <form class="form form--tight" id="register-form" novalidate>
+          <div class="field">
+            <label class="field__label" for="name">Nome</label>
+            <input class="field__input" id="name" name="name" type="text" placeholder="Seu nome" autocomplete="name" />
+            <p class="field__error" id="name-error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="email">E-mail</label>
+            <input class="field__input" id="email" name="email" type="email" placeholder="seu@email.com" autocomplete="email" />
+            <p class="field__error" id="email-error" hidden></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="password">Senha</label>
+            <input class="field__input" id="password" name="password" type="password" placeholder="Mínimo 6 caracteres" autocomplete="new-password" />
+            <p class="field__error" id="password-error" hidden></p>
+          </div>
+
+          <!-- Só este botão cria a conta -->
+          <button class="btn btn--primary btn--block" type="submit" id="submit-btn">Criar conta</button>
+        </form>
+
+        <p class="card__footer">
+          Já tem conta? <a class="link" href="login.html">Entrar</a>
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/mock-api.js"></script>
+  <script src="js/cadastro.js"></script>
+</body>
+</html>
