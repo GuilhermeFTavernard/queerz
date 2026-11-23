@@ -1,0 +1,104 @@
+package br.edu.ufersa.queerz.demo.quiz;
+
+import br.edu.ufersa.queerz.demo.pergunta.Pergunta;
+import br.edu.ufersa.queerz.demo.sessaoQuiz.SessaoQuiz;
+import br.edu.ufersa.queerz.demo.tentativaQuiz.TentativaQuiz;
+import br.edu.ufersa.queerz.demo.usuario.Usuario;
+import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+public class Quiz {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String titulo;
+
+    private String descricao;
+
+    @ManyToOne
+    private Usuario criador;
+
+    @Enumerated(EnumType.STRING)
+    private Privacidade privacidade;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Pergunta> perguntas = new ArrayList<>();
+
+    @OneToMany(mappedBy = "quiz")
+    private List<TentativaQuiz> tentativas = new ArrayList<>();
+
+    @OneToMany(mappedBy = "quiz")
+    private List<SessaoQuiz> sessoes = new ArrayList<>();
+
+    public Quiz() {
+    }
+
+    public Quiz(String titulo, String descricao, Privacidade privacidade, Usuario criador) {
+        if (criador == null) {
+            throw new IllegalArgumentException("O quiz precisa ter um criador");
+        }
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.privacidade = privacidade;
+        this.criador = criador;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+    public Usuario getCriador() {
+        return criador;
+    }
+    public void setCriador(Usuario user) {this.criador = user;}
+
+    public Privacidade getPrivacidade() {
+        return privacidade;
+    }
+
+    public void setPrivacidade(Privacidade privacidade) {
+        this.privacidade = privacidade;
+    }
+
+    public List<Pergunta> getPerguntas() {
+        return perguntas;
+    }
+
+    public void setPerguntas(List<Pergunta> perguntas) {
+        this.perguntas = perguntas;
+    }
+
+    public List<TentativaQuiz> getTentativas() {
+        return tentativas;
+    }
+
+    public void setTentativas(List<TentativaQuiz> tentativas) {
+        this.tentativas = tentativas;
+    }
+
+    public List<SessaoQuiz> getSessoes() {
+        return sessoes;
+    }
+
+    public void setSessoes(List<SessaoQuiz> sessoes) {
+        this.sessoes = sessoes;
+    }
+}
